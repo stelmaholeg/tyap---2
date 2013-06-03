@@ -39,8 +39,7 @@ void popStackLexema(string lexema)
 		st.pop();	
 }
 
-void workWithW(string lexema){
-	
+void workWithW(string lexema){	
 			if (lexema == "W1"){//Program
 				flagPName = true;
 			}else if (lexema == "W2"){//Begin
@@ -91,7 +90,6 @@ void workWithW(string lexema){
 			}
 }
 
-
 void workWithR(string lexema){	
 	switch (lexema[1]){
 		case '2':
@@ -100,6 +98,8 @@ void workWithR(string lexema){
 			break;
 		case '3'://;
 		//встретили ; в конце условия, при этом не стоит операторных скобок
+			opz << "\n";
+			cout << "\n";
 			popStackBeforeLexema("W5");	
 			if (flagIF && !flagIFBegin){
 				popStackBeforeLexema("W5");											
@@ -110,8 +110,8 @@ void workWithR(string lexema){
 			}			
 			else if (flagGoto){
 				flagGoto = false;
-				opz << " BP ";
-				cout << " BP ";
+				opz << " BP \n";
+				cout << " BP \n";
 			}
 			break;
 		case '4'://(
@@ -130,8 +130,8 @@ void workWithR(string lexema){
 				flagArray = false;
 				popStackBeforeLexema("R6");
 				popStackLexema("R6");
-				opz << sizeArray << "AEM ";	
-				cout << sizeArray << "AEM ";
+				opz << sizeArray << "AEM \n";	
+				cout << sizeArray << "AEM \n";
 				sizeArray = 2;
 			}
 			break;
@@ -251,4 +251,3 @@ int main()
 	inp.close();
 	opz.close();
 }
-	
